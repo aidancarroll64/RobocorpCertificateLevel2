@@ -17,8 +17,8 @@ Library           RPA.FileSystem
 
 *** Variables ***
 ${URL}=           https://robotsparebinindustries.com/#/robot-order
-${GLOBAL_RETRY_AMOUNT}=    5x
-${GLOBAL_RETRY_INTERVAL}=    1s
+${GLOBAL_RETRY_AMOUNT}=    10x
+${GLOBAL_RETRY_INTERVAL}=    3s
 
 *** Tasks ***
 Build and order robot on RSB website.
@@ -50,6 +50,7 @@ Open RSB robot order website
     # When ran locally this code will work
     ${secret}=    Get secret data
     Open Available Browser    ${secret}[url]
+    Maximize Browser Window
     # When ran through Control Room this will work
     # Open Available Browser    ${URL}
 
